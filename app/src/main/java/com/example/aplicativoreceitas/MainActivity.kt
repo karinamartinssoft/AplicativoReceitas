@@ -18,14 +18,14 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun setAdapterFragment(){
+    fun setAdapterFragment() {
         val lAdapter = ScreenSlidePagerAdapter(supportFragmentManager, lifecycle)
         lAdapter.addFragment(LoginPerfilFragment())
         lAdapter.addFragment(ReceitasFragment())
         mBinding.viewPagerMain.adapter = lAdapter
     }
 
-    fun goToPage(aPageToGo: Int){
+    fun goToPage(aPageToGo: Int) {
         mBinding.viewPagerMain.setCurrentItem(aPageToGo, false)
     }
 }

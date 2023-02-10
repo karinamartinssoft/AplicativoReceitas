@@ -1,5 +1,7 @@
 package com.example.aplicativoreceitas
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,12 +11,18 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import android.widget.Toast
+import com.example.aplicativoreceitas.ReceitasConstants.CARNE_PANELA
+import com.example.aplicativoreceitas.ReceitasConstants.PANQUECA_LIQUI
+import com.example.aplicativoreceitas.ReceitasConstants.PAO_CASEIRO
+import com.example.aplicativoreceitas.ReceitasConstants.TORTA_FRANGO
 import com.example.aplicativoreceitas.databinding.FragmentReceitasBinding
 
 
 class ReceitasFragment : Fragment() {
 
     lateinit var mBinding: FragmentReceitasBinding
+    var mConstReceita: String = " "
+    lateinit var mParent: MainActivity
 
 
     override fun onCreateView(
@@ -30,14 +38,23 @@ class ReceitasFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setWebViewReceitas()
+        clickOpenDescricaoReceita()
+
+
+
+    }
+
+    override fun onAttach(aContext: Context) {
+        super.onAttach(aContext)
+        if (aContext is MainActivity) this.mParent = aContext
     }
 
     fun setWebViewReceitas() {
         try {
-            mBinding.WebViewMassaPanqueca.webViewClient = WebViewClient()
-            mBinding.WebViewCarnePanela.webViewClient = WebViewClient()
-            mBinding.WebViewPaoCaseiro.webViewClient = WebViewClient()
-            mBinding.WebViewTortaFrango.webViewClient = WebViewClient()
+            mBinding.webViewMassaPanqueca.webViewClient = WebViewClient()
+            mBinding.webViewCarnePanela.webViewClient = WebViewClient()
+            mBinding.webViewPaoCaseiro.webViewClient = WebViewClient()
+            mBinding.webViewTortaFrango.webViewClient = WebViewClient()
 
             val setClientWebView = object : WebViewClient() {
                 override fun shouldOverrideUrlLoading(
@@ -57,18 +74,21 @@ class ReceitasFragment : Fragment() {
                 }
 
 
-
             }
-            mBinding.WebViewCarnePanela.settings.allowContentAccess = true
-            mBinding.WebViewCarnePanela.settings.allowFileAccess = true
+            mBinding.webViewCarnePanela.settings.allowContentAccess = true
+            mBinding.webViewCarnePanela.settings.allowFileAccess = true
 
-            mBinding.WebViewCarnePanela.webViewClient = setClientWebView
-            mBinding.WebViewMassaPanqueca.webViewClient = setClientWebView
+            mBinding.webViewCarnePanela.webViewClient = setClientWebView
+            mBinding.webViewMassaPanqueca.webViewClient = setClientWebView
+            mBinding.webViewPaoCaseiro.webViewClient = setClientWebView
+            mBinding.webViewTortaFrango.webViewClient = setClientWebView
 
 
 
-            mBinding.WebViewCarnePanela.loadUrl("https://w7.pngwing.com/pngs/1012/933/png-transparent-pot-roast-roast-beef-leftovers-roasting-slow-cookers-pot-roast-food-beef-roast-beef.png")
-            mBinding.WebViewMassaPanqueca.loadUrl("https://w7.pngwing.com/pngs/1012/933/png-transparent-pot-roast-roast-beef-leftovers-roasting-slow-cookers-pot-roast-food-beef-roast-beef.png")
+            mBinding.webViewCarnePanela.loadUrl("https://claudia.abril.com.br/wp-content/uploads/2020/02/receita-carne-panela-economica.jpg")
+            mBinding.webViewMassaPanqueca.loadUrl("https://receitasculinarias.com.br/wp-content/uploads/2022/10/Massa-de-panqueca-super-macia-1024x576.png")
+            mBinding.webViewPaoCaseiro.loadUrl("https://receidelicia.com.br/wp-content/uploads/2021/02/maxresdefault.jpg")
+            mBinding.webViewTortaFrango.loadUrl("https://www.culinariapravaler.com/image/postagens/2020/05/deliciosa-torta-de-frango-com-massa-de-mandioquinha.html.png")
 
 
         } catch (e: Exception) {
@@ -76,5 +96,34 @@ class ReceitasFragment : Fragment() {
 
         }
 
+
     }
+
+    fun clickOpenDescricaoReceita(){
+        mBinding.cardViewPanquecaLiqui.setOnClickListener{
+            mConstReceita = PANQUECA_LIQUI
+            startActivityDescricao()
+        }
+        mBinding.cardViewCarnePanela.setOnClickListener {
+            mConstReceita = CARNE_PANELA
+            startActivityDescricao()
+        }
+        mBinding.cardViewPaoCaseiro.setOnClickListener {
+            mConstReceita = PAO_CASEIRO
+            startActivityDescricao()
+        }
+        mBinding.cardViewTortaFrango.setOnClickListener {
+            mConstReceita = TORTA_FRANGO
+            startActivityDescricao()
+        }
+    }
+
+    fun startActivityDescricao(){
+        val lIntent = Intent(mParent, DescricaoReceitaActivity::class.java)
+        lIntent.putExtra("ConstReceita", mConstReceita)
+        mParent.startActivity(lIntent)
+    }
+
+
 }
+

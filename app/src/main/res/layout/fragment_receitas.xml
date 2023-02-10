@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -17,101 +16,179 @@
             android:orientation="vertical">
 
 
-            <TextView
-                android:id="@+id/textViewPanquecaLiqui"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="Massa de Panqueca de Liquidificador"
-                app:layout_constraintBottom_toTopOf="@+id/textViewCarnePanelaTomate"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewPanquecaLiqui"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:elevation="15dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="15dp"
+                app:cardMaxElevation="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/textViewEscolhaReceita">
 
-            <TextView
-                android:id="@+id/textViewCarnePanelaTomate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Carne de Panela com Molho de Tomate"
-                app:layout_constraintBottom_toTopOf="@+id/textViewPaoCaseiro"
-                app:layout_constraintStart_toStartOf="@+id/textViewPanquecaLiqui"
-                app:layout_constraintTop_toBottomOf="@+id/textViewPanquecaLiqui" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/textViewPaoCaseiro"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:text="Pão Caseiro Simples"
-                app:layout_constraintBottom_toTopOf="@+id/textViewTortaFragoLiqui"
-                app:layout_constraintStart_toStartOf="@+id/textViewPanquecaLiqui"
-                app:layout_constraintTop_toBottomOf="@+id/textViewCarnePanelaTomate" />
+                    <TextView
+                        android:id="@+id/textViewPanquecaLiqui"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Massa de Panqueca de Liquidificador"
 
-            <TextView
-                android:id="@+id/textViewTortaFragoLiqui"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <WebView
+                        android:id="@+id/webViewMassaPanqueca"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:layoutDirection="locale"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewPanquecaLiqui" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewCarnePanela"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="15dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="15dp"
+                app:cardMaxElevation="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewPanquecaLiqui">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+
+                    <TextView
+                        android:id="@+id/textViewCarnePanelaTomate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Carne de Panela com Molho de Tomate"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <WebView
+                        android:id="@+id/webViewCarnePanela"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewCarnePanelaTomate" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewPaoCaseiro"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_marginTop="16dp"
-                android:text="Torta de Frango de Liquidificador"
+                android:elevation="15dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="15dp"
+                app:cardMaxElevation="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewCarnePanela">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewPaoCaseiro"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:text="Pão Caseiro Simples"
+                        android:textAlignment="center"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <WebView
+                        android:id="@+id/webViewPaoCaseiro"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewPaoCaseiro" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewTortaFrango"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="15dp"
+                app:cardCornerRadius="15dp"
+                app:cardElevation="15dp"
+                app:cardMaxElevation="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/textViewPanquecaLiqui"
-                app:layout_constraintTop_toBottomOf="@+id/textViewPaoCaseiro" />
-
-            <WebView
-                android:id="@+id/webViewMassaPanqueca"
-                android:layout_width="0dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toTopOf="@+id/textViewCarnePanelaTomate"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewPanquecaLiqui" />
+                app:layout_constraintTop_toBottomOf="@+id/cardViewPaoCaseiro">
 
-            <WebView
-                android:id="@+id/webViewCarnePanela"
-                android:layout_width="0dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/textViewPaoCaseiro"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewCarnePanelaTomate" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-            <WebView
-                android:id="@+id/webViewPaoCaseiro"
-                android:layout_width="0dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toTopOf="@+id/textViewTortaFragoLiqui"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewPaoCaseiro" />
+                    <TextView
+                        android:id="@+id/textViewTortaFragoLiqui"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
 
-            <WebView
-                android:id="@+id/webViewTortaFrango"
-                android:layout_width="0dp"
-                android:layout_height="110dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginBottom="8dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewTortaFragoLiqui"
-                app:layout_constraintVertical_bias="0.571" />
+                        android:text="Torta de Frango de Liquidificador"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <WebView
+                        android:id="@+id/webViewTortaFrango"
+                        android:layout_width="0dp"
+                        android:layout_height="110dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textViewTortaFragoLiqui" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
 
             <TextView
                 android:id="@+id/textViewEscolhaReceita"
@@ -119,7 +196,6 @@
                 android:layout_height="wrap_content"
                 android:text="Escolha sua receita! "
                 android:textSize="20sp"
-                app:layout_constraintBottom_toTopOf="@+id/textViewPanquecaLiqui"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
