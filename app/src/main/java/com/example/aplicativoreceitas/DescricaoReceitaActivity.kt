@@ -39,19 +39,28 @@ class DescricaoReceitaActivity : AppCompatActivity() {
     }
 
     fun populateReceita(){
-        when(mConstReceita.toString()){
+        when(mConstReceita){
             PANQUECA_LIQUI -> {
                 mBinding.textViewTituloDescricao.text = "Panqueca de Liquidificador"
                 mBinding.textViewDescricaoReceita.text = "Modo de Preparo Panqueca"
                 mBinding.webViewFotoReceita.loadUrl("https://receitasculinarias.com.br/wp-content/uploads/2022/10/Massa-de-panqueca-super-macia-1024x576.png")
             }
             CARNE_PANELA -> {
+                mBinding.textViewTituloDescricao.text = "Carne de Panela"
+                mBinding.textViewDescricaoReceita.text = "Modo de Preparo Carne de Panela"
+                mBinding.webViewFotoReceita.loadUrl("https://claudia.abril.com.br/wp-content/uploads/2020/02/receita-carne-panela-economica.jpg")
 
             }
             PAO_CASEIRO -> {
+                mBinding.textViewTituloDescricao.text = "Pão Caseiro"
+                mBinding.textViewDescricaoReceita.text = "Modo de Preparo Pão Caseiro"
+                mBinding.webViewFotoReceita.loadUrl("https://receidelicia.com.br/wp-content/uploads/2021/02/maxresdefault.jpg")
 
             }
             TORTA_FRANGO ->{
+                mBinding.textViewTituloDescricao.text = "Torta de Frango"
+                mBinding.textViewDescricaoReceita.text = "Modo de Preparo Torta de Frango"
+                mBinding.webViewFotoReceita.loadUrl("https://www.culinariapravaler.com/image/postagens/2020/05/deliciosa-torta-de-frango-com-massa-de-mandioquinha.html.png")
 
             }
         }
