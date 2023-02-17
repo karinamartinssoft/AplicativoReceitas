@@ -85,7 +85,7 @@ class ReceitasFragment : Fragment() {
 
 
 
-            mBinding.webViewCarnePanela.loadUrl("https://claudia.abril.com.br/wp-content/uploads/2020/02/receita-carne-panela-economica.jpg")
+            mBinding.webViewCarnePanela.loadUrl("https://img1.gratispng.com/20180823/toa/kisspng-red-meat-beef-food-boucherie-meat-png-free-png-images-toppng-5b7f4df9c13197.9850216915350696897913.jpg")
             mBinding.webViewMassaPanqueca.loadUrl("https://receitasculinarias.com.br/wp-content/uploads/2022/10/Massa-de-panqueca-super-macia-1024x576.png")
             mBinding.webViewPaoCaseiro.loadUrl("https://receidelicia.com.br/wp-content/uploads/2021/02/maxresdefault.jpg")
             mBinding.webViewTortaFrango.loadUrl("https://www.culinariapravaler.com/image/postagens/2020/05/deliciosa-torta-de-frango-com-massa-de-mandioquinha.html.png")
